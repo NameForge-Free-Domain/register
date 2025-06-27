@@ -105,7 +105,6 @@ domains.json     ← Active list used by backend
 ## 💬 Community & Support
 
 - Instagram: [name.forge](https://www.instagram.com/name.forge)
-- WhatsApp: +1 (260) 286-7493  
 - Email: nameforge.rf.gd@gmail.com
 
 ---
