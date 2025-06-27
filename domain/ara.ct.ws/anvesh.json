@@ -1,0 +1,7 @@
+{
+  "name": "anvesh",
+  "subdomain": "ara.ct.ws",
+  "records": {
+    "CNAME": ["saarmy.github.io"]
+  }
+}
