@@ -1,0 +1,7 @@
+{
+  "name": "yoursub",
+  "subdomain": "its.mydiscussion.net",
+  "records": {
+    "CNAME": ["yourusername.github.io"]
+  }
+}
