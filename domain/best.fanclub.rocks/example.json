@@ -1,0 +1,7 @@
+{
+  "name": "yoursub",
+  "subdomain": "best.fanclub.rocks",
+  "records": {
+    "CNAME": ["yourusername.github.io"]
+  }
+}
