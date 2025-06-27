@@ -1,7 +1,0 @@
-{
-  "name": "yoursub",
-  "subdomain": "ara.ct.ws",
-  "records": {
-    "CNAME": ["yourusername.github.io"]
-  }
-}
