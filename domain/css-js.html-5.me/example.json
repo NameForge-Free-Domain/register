@@ -1,0 +1,7 @@
+{
+  "name": "yoursub",
+  "subdomain": "css-js.html-5.me",
+  "records": {
+    "CNAME": ["yourusername.github.io"]
+  }
+}
