@@ -1,0 +1,7 @@
+{
+  "name": "yoursub",
+  "subdomain": "it-is.my-style.in",
+  "records": {
+    "CNAME": ["yourusername.github.io"]
+  }
+}
