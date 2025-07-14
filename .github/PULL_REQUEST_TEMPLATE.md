@@ -1,4 +1,4 @@
-# 🚀 Subdomain Request Form
+# Subdomain Request Form
 
 Thanks for submitting a request to add your subdomain to **NameForge**!
 
@@ -6,7 +6,7 @@ Please review the checklist below and ensure everything is correct before submit
 
 ---
 
-## 📌 Subdomain Details
+## Subdomain Details
 
 - **Subdomain:** `yourname.ara.ct.ws` (or other domain like `it-is.my-style.in`)
 - **Domain File Location:** `domains/ara.ct.ws/yourname.json`
@@ -14,14 +14,14 @@ Please review the checklist below and ensure everything is correct before submit
 
 ---
 
-## ✅ Checklist
+## Checklist
 
-- [ ] My JSON file is valid and in the correct folder
-- [ ] I am the rightful owner of the CNAME target
-- [ ] I am not pointing to harmful or misleading content
-- [ ] My subdomain follows the format and naming rules
-- [ ] I agree to the [Code of Conduct](../CODE_OF_CONDUCT.md)
-- [ ] I agree to the [Subdomain Terms](../TERMS.md)
+- [] My JSON file is valid and in the correct folder
+- [] I am the rightful owner of the CNAME target
+- [] I am not pointing to harmful or misleading content
+- [] My subdomain follows the format and naming rules
+- [] I agree to the [Code of Conduct](https://github.com/NameForge-Free-Domain/register/blob/main/CODE_OF_CONDUCT.md)
+- [] I agree to the [Subdomain Terms](../TERMS.md)
 
 ---
 
