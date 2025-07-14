@@ -1,118 +1,106 @@
-# ⚠️Note
+# NameForge
 
-**NameForge** is still under development.
-
-# 🌐 NameForge
-
-**NameForge** is a free, community-driven subdomain registry — claim your own developer subdomain, powered by GitHub Pull Requests.
+**NameForge** is a free, community-driven subdomain registry — claim your own developer subdomain under our collection of unique domains.
 
 ---
 
-## 📜 Subdomain Roots Available
-Choose from these pre-approved root domains:
+## What Is NameForge?
+NameForge is a project inspired by [js.org](https://js.org), offering free subdomains to developers, creators, and hobbyists. You can point your subdomain to services like GitHub Pages, Vercel, Netlify, or any other platform supporting custom domains.
 
-- `ara.ct.ws`  
-- `are-you-on.my-board.org`  
-- `best.fanclub.rocks`  
-- `css-js.html-5.me`  
+---
+
+## Available Domains
+You can request subdomains under any of the following:
+
+- `ara.ct.ws`
+- `are-you-on.my-board.org`
+- `best.fanclub.rocks`
+- `css-js.html-5.me`
 - `it-is.my-style.in`
-- `its.mydiscussion.net` 
-
-> ⚠️ You cannot choose the domain dynamically — it's specified in your JSON file.
+- `its.mydiscussion.net`
 
 ---
 
-## 🚀 Features
+## Features
 
-- ✅ Free subdomain via GitHub Pull Request  
-- 🌍 Multiple root domains available  
-- 🔁 Auto DNS sync with:
-  - ✅ **CNAME support only**  
-- 🛡️ GitHub Action validation to prevent abuse  
-- 🧠 Fully scriptable + community managed  
+✅ Free subdomain via GitHub Pull Request  
+🌍 Multiple root domains to choose from  
+🔁 Auto DNS sync support for:
+- CNAME (primary method)
+
+🔒 GitHub Action PR validation  
+💡 Fully open-source and community managed
 
 ---
 
-## 📝 How to Register a Subdomain
+## How to Register a Subdomain
 
-🧑‍💻 *No coding experience required!*
+No coding skills required. Just:
 
-1. **Fork** this repository  
-2. **Create a file** in the `/domains/` directory  
-   - Filename format:
-     ```
-     yoursub.json
-     ```
+1. **Fork** this repository.
+2. **Choose** a root domain from the list above.
+3. **Create a file** at:
 
-3. **Use this format** inside your `.json` file:
+   ```
+   domains/<domain>/<yourname>.json
+   ```
+
+4. **Add your subdomain info**:
 
 ```json
 {
-  "name": "yoursub",
-  "subdomain": "ara.ct.ws",
+  "name": "yourname",
+  "subdomain": "yourname.css-js.html-5.me",
   "records": {
     "CNAME": ["yourusername.github.io"]
   }
 }
 ```
 
-4. **Open a Pull Request**  
-5. ✅ Once approved, your subdomain will go live within **24–48 hours**!
+5. **Open a Pull Request**
+6. Wait for approval — your subdomain will go live within 24–48h 🎉
 
 ---
 
-## 📂 Project Structure
-
+## Repo Structure
 ```
-📁 domains/
- ├── yoursub.json
+domains/
+ ├── css-js.html-5.me/
+ │   └── yourname.json
+ ├── ara.ct.ws/
+ │   └── someone.json
+ └── ...
 
-📁 .github/
+.github/
  └── workflows/
      └── validate-subdomain-pr.yml
 
-server.js        ← Backend for live DNS automation
-sync-domains.js  ← Reads + compiles domain requests
-domains.json     ← Active list used by backend
+sync-domains.js   ← Reads and compiles all domain entries
+server.js         ← Backend for DNS automation (optional)
+domains.json      ← Final compiled list
 ```
 
 ---
 
-## ✅ DNS Record Support
+## Rules
 
-- **CNAME** only — ideal for GitHub Pages, Vercel, Netlify, etc.  
-- ❌ MX, TXT, NS records are not currently supported for subdomains due to platform limitations.
-
----
-
-## 🤖 Automation
-
-- 🧠 GitHub Actions auto-validate all PRs
-- 🛠️ Backend (`server.js`) updates DNS via Puppeteer (InfinityFree)
-- 🌐 Cloudflare + FreeDNS support planned
+- ✅ 1 subdomain per person per root domain
+- 🚫 No illegal, NSFW, or abusive content
+- 🧾 Use a valid email for accountability
+- 🌐 You must own the content you are pointing to
 
 ---
 
-## 📜 Rules
+## Contact
 
-- One subdomain **per person per domain**
-- No illegal, NSFW, or spammy content
-- You **must control** the target of the CNAME
-- Use a valid email for accountability
-
----
-
-## 💬 Community & Support
-
-- Instagram: [name.forge](https://www.instagram.com/name.forge)
-- Email: nameforge.rf.gd@gmail.com
+- **Email:** nameforge.rf.gd@gmail.com  
+- **WhatsApp:** +1 (260) 286-7493
 
 ---
 
 ## License
-
 MIT License © 2025 NameForge Team
 
 ---
 
-> 🔥 “Name your space. Forge your presence.” – *NameForge*
+> "Name your space. Forge your presence." — *NameForge*
