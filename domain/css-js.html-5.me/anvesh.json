@@ -2,6 +2,6 @@
   "name": "SA-Army",
   "subdomain": "yourname.css-js.html-5.me",
   "records": {
-    "CNAME": ["saarmy.github.io"]
+    "CNAME": ["sa-army.github.io"]
   }
 }
