@@ -1,0 +1,7 @@
+{
+  "name": "karnvesh",
+  "subdomain": "karnvesh.best.fanclub.rocks",
+  "records": {
+    "CNAME": ["darkness-king17.github.io"]
+  }
+}
