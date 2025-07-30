@@ -1,3 +1,7 @@
+<p align="center">
+  <img width="300" height="300" src="https://nameforge.rf.gd/logo.png">
+</p>
+
 # NameForge
 
 **NameForge** is a free, community-driven subdomain registry — claim your own developer subdomain under our collection of unique domains.
