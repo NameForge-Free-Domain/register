@@ -97,7 +97,7 @@ domains.json      ← Final compiled list
 
 ## Contact
 
-- **Email:** nameforge.rf.gd@gmail.com  
+- **Email:** support@nameforge.zone.id  
 - **WhatsApp:** +1 (260) 286-7493
 
 ---
