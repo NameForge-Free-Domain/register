@@ -1,6 +1,6 @@
 {
   "name": "yoursub",
-  "subdomain": "are-you-on.my-board.org",
+  "subdomain": "yourname.are-you-on.my-board.org",
   "records": {
     "CNAME": ["yourusername.github.io"]
   }
