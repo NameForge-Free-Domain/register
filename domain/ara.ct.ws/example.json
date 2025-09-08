@@ -1,6 +1,6 @@
 {
   "name": "yoursub",
-  "subdomain": "ara.ct.ws",
+  "subdomain": "yourname.ara.ct.ws",
   "records": {
     "CNAME": ["yourusername.github.io"]
   }
