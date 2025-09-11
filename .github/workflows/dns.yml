@@ -16,14 +16,13 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Install DNSControl
-        run: |
-          curl -fsSL https://get.dnscontrol.org | sh
+        uses: StackExchange/dnscontrol-action@v3
 
       - name: Check DNS Config
-        run: ./dnscontrol check
+        run: dnscontrol check
 
       - name: Preview DNS Changes
-        run: ./dnscontrol preview --creds creds.json
+        run: dnscontrol preview --creds creds.json
         env:
           CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
 
@@ -35,10 +34,9 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Install DNSControl
-        run: |
-          curl -fsSL https://get.dnscontrol.org | sh
+        uses: StackExchange/dnscontrol-action@v3
 
       - name: Push DNS Changes
-        run: ./dnscontrol push --creds creds.json
+        run: dnscontrol push --creds creds.json
         env:
           CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
