@@ -1,0 +1,44 @@
+name: NameForge DNS
+
+on:
+  pull_request:
+    paths:
+      - 'domains/**'
+  push:
+    branches:
+      - main
+
+jobs:
+  validate:
+    name: Validate PR
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install DNSControl
+        run: |
+          curl -fsSL https://get.dnscontrol.org | sh
+
+      - name: Check DNS Config
+        run: ./dnscontrol check
+
+      - name: Preview DNS Changes
+        run: ./dnscontrol preview --creds creds.json
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+
+  deploy:
+    name: Deploy DNS
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install DNSControl
+        run: |
+          curl -fsSL https://get.dnscontrol.org | sh
+
+      - name: Push DNS Changes
+        run: ./dnscontrol push --creds creds.json
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
