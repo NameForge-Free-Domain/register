@@ -1,0 +1,7 @@
+{
+  "name": "NameForgeAdmin",
+  "subdomain": "nameforgeadmin.ara.ct.ws",
+  "records": {
+    "CNAME": ["nameforgeadmin.github.io"]
+  }
+}
