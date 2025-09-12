@@ -3,46 +3,41 @@ name: NameForge DNS
 on:
   pull_request:
     paths:
-      - 'domains/**'
-  push:
-    branches:
-      - main
+      - "domains/**"
 
 jobs:
-  validate:
-    name: Validate PR
+  validate-json:
     runs-on: ubuntu-latest
+    name: ✅ Validate Subdomain JSON
+
     steps:
-      - uses: actions/checkout@v3
+      - name: ⬇️ Checkout Repository
+        uses: actions/checkout@v3
 
-      - name: Install DNSControl
+      - name: 🔎 Find Changed JSON Files
+        id: changed-files
+        uses: tj-actions/changed-files@v39
+        with:
+          files: |
+            domains/**/*.json
+
+      - name: 📂 Loop through Changed Files
         run: |
-          curl -L https://github.com/StackExchange/dnscontrol/releases/latest/download/dnscontrol-linux-amd64 \
-            -o /usr/local/bin/dnscontrol
-          chmod +x /usr/local/bin/dnscontrol
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            echo "Validating: $file"
+            cat "$file"
+            jq . "$file" || { echo "❌ Invalid JSON in $file" && exit 1; }
 
-      - name: Check DNS Config
-        run: dnscontrol check
+            # Validate required keys
+            NAME=$(jq -r '.name' "$file")
+            SUBDOMAIN=$(jq -r '.subdomain' "$file")
+            CNAME=$(jq -r '.records.CNAME[0]' "$file")
 
-      - name: Preview DNS Changes
-        run: dnscontrol preview --creds creds.json
-        env:
-          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+            if [[ -z "$NAME" || -z "$SUBDOMAIN" || -z "$CNAME" ]]; then
+              echo "❌ Missing required fields in $file"
+              exit 1
+            fi
+          done
 
-  deploy:
-    name: Deploy DNS
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Install DNSControl
-        run: |
-          curl -L https://github.com/StackExchange/dnscontrol/releases/latest/download/dnscontrol-linux-amd64 \
-            -o /usr/local/bin/dnscontrol
-          chmod +x /usr/local/bin/dnscontrol
-
-      - name: Push DNS Changes
-        run: dnscontrol push --creds creds.json
-        env:
-          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+      - name: ✅ All Good!
+        run: echo "🎉 All submitted subdomain files are valid!"
