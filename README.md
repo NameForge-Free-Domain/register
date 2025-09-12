@@ -1,3 +1,9 @@
+# ⚠ NOTICE
+
+Since InfinityFree is not allowing us to operate we are changing the domain names and hosting so we are not allowing any now domain right now and all the old domains will be immagrated to the new on automatically.
+
+---
+
 <p align="center">
   <img width="300" height="300" src="https://nameforge.rf.gd/logo.png">
 </p>
