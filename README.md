@@ -108,6 +108,12 @@ domains.json      ← Final compiled list
 
 ---
 
+## Donation
+
+For Crypto: [Click Here!](https://nowpayments.io/donation/nameforge)
+
+---
+
 ## License
 MIT License © 2025 NameForge Team
 
