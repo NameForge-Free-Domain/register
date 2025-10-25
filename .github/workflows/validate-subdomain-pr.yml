@@ -21,23 +21,35 @@ jobs:
           files: |
             domains/**/*.json
 
-      - name: 📂 Loop through Changed Files
+      - name: 📂 Validate Changed JSON Files
         run: |
+          INVALID=0
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
             echo "Validating: $file"
-            cat "$file"
-            jq . "$file" || { echo "❌ Invalid JSON in $file" && exit 1; }
 
-            # Validate required keys
-            NAME=$(jq -r '.name' "$file")
-            SUBDOMAIN=$(jq -r '.subdomain' "$file")
-            CNAME=$(jq -r '.records.CNAME[0]' "$file")
+            # Check JSON syntax
+            if ! jq . "$file" > /dev/null 2>&1; then
+              echo "❌ Invalid JSON syntax in $file"
+              INVALID=1
+              continue
+            fi
 
+            # Extract keys safely
+            NAME=$(jq -r '.name // empty' "$file")
+            SUBDOMAIN=$(jq -r '.subdomain // empty' "$file")
+            CNAME=$(jq -r '.records.CNAME[0] // empty' "$file")
+
+            # Check required fields
             if [[ -z "$NAME" || -z "$SUBDOMAIN" || -z "$CNAME" ]]; then
               echo "❌ Missing required fields in $file"
-              exit 1
+              INVALID=1
             fi
           done
+
+          if [[ $INVALID -eq 1 ]]; then
+            echo "❌ One or more JSON files are invalid."
+            exit 1
+          fi
 
       - name: ✅ All Good!
         run: echo "🎉 All submitted subdomain files are valid!"
